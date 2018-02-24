@@ -54,4 +54,46 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.before(:suite) do
+    load "#{Rails.root}/db/seeds.rb"
+    puts "before suite"
+  end
+
+  config.before(:all) do
+    puts "before all in rails_helper"
+  end
+
+  config.before(:context) do
+    puts "before context in rails_helper"
+  end
+
+  config.before(:each) do
+    puts "before each1 in rails_helper"
+  end
+
+  config.before(:each) do
+    puts "before each2 in rails_helper"
+  end
+
+  config.after(:each) do
+    puts "after each1 in rails_helper"
+  end
+
+  config.after(:each) do
+    puts "after each2 in rails_helper"
+  end
+
+  config.after(:all) do
+    puts "after all in rails_helper"
+  end
+
+  config.after(:context) do
+    puts "after context in rails_helper"
+  end
+
+  config.after(:suite) do
+    User.destroy_all
+    puts "after suite"
+  end
 end

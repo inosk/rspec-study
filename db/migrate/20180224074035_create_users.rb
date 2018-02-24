@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.integer :age
 
       t.timestamps
+      t.index :name, unique: true
     end
   end
 end

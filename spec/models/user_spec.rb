@@ -1,5 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "create" do
+    expect{User.create!(name: "hoge1", age: 1)}.to_not raise_error
+  end
+
+  it "destroy" do
+    expect do
+      user = User.create!(name: "hoge1", age: 1)
+      user.destroy!
+    end.to_not raise_error
+  end
 end
